@@ -26,6 +26,7 @@ public class WordChooser : MonoBehaviour {
 			SetMouseInForWord(null);
 			SelectWord(word);
 			word.MoveToPivot(selectedPivot.position, selectedTime);
+			enabled = false;
 		}
 	}
 
