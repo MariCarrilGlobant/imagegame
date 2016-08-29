@@ -6,7 +6,7 @@ A game of matching letters to form the word corresponding to a selected image.
 # Authors
 
 - Lucas Wall <wall.lucas@gmail.com>
-- Matiana Carril <marianacarril@gmail.com>
+- Mariana Carril <marianacarril@gmail.com>
 
 
 # License
