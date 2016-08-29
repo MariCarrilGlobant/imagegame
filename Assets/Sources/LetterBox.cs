@@ -18,6 +18,8 @@ public class LetterBox : MonoBehaviour {
 		set { GetComponentInChildren<TextMesh>().text = value.ToString(); }
 	}
 
+	public bool InPosition { get { return inPosition; } }
+
 	bool grabbed = false;
 	Vector3 snapPosition;
 	LetterSpace overSpace;
@@ -57,6 +59,7 @@ public class LetterBox : MonoBehaviour {
 		if ( overSpace.ValidLetter == ContainedLetter ) {
 			snapPosition = overSpace.transform.position;
 			inPosition = true;
+			overSpace.HasValidLetter = true;
 		} else {
 			audioSource.PlayOneShot(wrongSpaceSound);
 		}
@@ -100,6 +103,7 @@ public class LetterBox : MonoBehaviour {
 			yield return null;
 		}
 		Camera.main.transform.position = pos;
+		FindObjectOfType<GameEnding>().CheckForGameEnd();
 	}
 
 	void OnTriggerStay2D(Collider2D other) {

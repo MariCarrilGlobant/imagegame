@@ -8,9 +8,11 @@ public class LetterSpace : MonoBehaviour {
 	public char validLetter;
 
 	public char ValidLetter { get { return validLetter; } }
+	public bool HasValidLetter { get; set; }
 
 	void Start() {
 		SetBoxAlpha(0.0f);
+		HasValidLetter = false;
 	}
 
 	public void EnterLetter() {
