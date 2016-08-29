@@ -8,6 +8,13 @@ public class LetterContainer : MonoBehaviour {
 	public Vector3 startPos;
 	public Vector3 spawnSpacing;
 	public int letterCount;
+	public AudioData[] audioData;
+
+	[System.Serializable]
+	public class AudioData {
+		public char ch;
+		public AudioClip clip;
+	}
 
 	void Update() {
 		CheckForLetterGrab();
@@ -48,6 +55,13 @@ public class LetterContainer : MonoBehaviour {
 		LetterBox letter = Instantiate<LetterBox>(letterBoxPrefab);
 		letter.transform.SetParent(transform);
 		letter.ContainedLetter = c;
+		letter.audioSource.clip = null;
+		for ( int i = 0; i < audioData.Length; i++ ) {
+			if ( audioData[i].ch == c ) {
+				letter.audioSource.clip = audioData[i].clip;
+				break;
+			}
+		}
 		return letter;
 	}
 

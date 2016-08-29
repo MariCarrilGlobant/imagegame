@@ -4,6 +4,7 @@ using System.Collections;
 public class LetterBox : MonoBehaviour {
 
 	public float snapTime;
+	public AudioSource audioSource;
 
 	public char ContainedLetter {
 		get { return GetComponentInChildren<TextMesh>().text[0]; }
@@ -25,6 +26,7 @@ public class LetterBox : MonoBehaviour {
 
 	public void GrabLetter() {
 		grabbed = true;
+		audioSource.Play();
 	}
 
 	public void ReleaseLetter() {

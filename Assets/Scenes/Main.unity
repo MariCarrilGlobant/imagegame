@@ -135,6 +135,25 @@ MonoBehaviour:
   startPos: {x: -6, y: -3, z: 0}
   spawnSpacing: {x: 1.5, y: 0, z: 0}
   letterCount: 9
+  audioData:
+  - ch: 65
+    clip: {fileID: 8300000, guid: da9bcbaeb10a1429e86b3b79a62ec334, type: 3}
+  - ch: 67
+    clip: {fileID: 8300000, guid: 5cd05889b0ed84a52893d168f0292515, type: 3}
+  - ch: 69
+    clip: {fileID: 8300000, guid: c660396ceb74a4d5c9dc20a70353d997, type: 3}
+  - ch: 71
+    clip: {fileID: 8300000, guid: 7000020051eb24aa287ca08a43c51faf, type: 3}
+  - ch: 76
+    clip: {fileID: 8300000, guid: e943304ef000e4c0788a7f1754963bd1, type: 3}
+  - ch: 79
+    clip: {fileID: 8300000, guid: 65dfbe4bd0bd74a55bfb41df1e1473de, type: 3}
+  - ch: 80
+    clip: {fileID: 8300000, guid: f6876847e7ef040bf930436a26389441, type: 3}
+  - ch: 83
+    clip: {fileID: 8300000, guid: 45be28009869a4cf181d4deb5d61acff, type: 3}
+  - ch: 84
+    clip: {fileID: 8300000, guid: 32b50b967d85b40f092a7f89df7cb26a, type: 3}
 --- !u!1 &398490628
 GameObject:
   m_ObjectHideFlags: 0
