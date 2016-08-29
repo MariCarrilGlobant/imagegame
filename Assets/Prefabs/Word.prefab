@@ -194,6 +194,7 @@ MonoBehaviour:
   animator: {fileID: 95000013780265292}
   mainImageCollider: {fileID: 61000012921247570}
   audioSource: {fileID: 82000013069362320}
+  enterSound: {fileID: 8300000, guid: 6d5b9a8565e2b484b822f3d882ae1486, type: 3}
 --- !u!212 &212000011926078796
 SpriteRenderer:
   m_ObjectHideFlags: 1

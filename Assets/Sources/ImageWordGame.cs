@@ -8,6 +8,7 @@ public class ImageWordGame : MonoBehaviour {
 	public Animator animator;
 	public Collider2D mainImageCollider;
 	public AudioSource audioSource;
+	public AudioClip enterSound;
 
 	void Start() {
 		mainImageRenderer.sprite = wordData.mainImage;
@@ -16,6 +17,7 @@ public class ImageWordGame : MonoBehaviour {
 
 	public void EnterWord() {
 		animator.SetTrigger("Enter");
+		audioSource.PlayOneShot(enterSound);
 	}
 
 	public void SetMouseIn(bool mouseIn) {
