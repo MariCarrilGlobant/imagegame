@@ -5,7 +5,10 @@ public class LetterBox : MonoBehaviour {
 
 	public float snapTime;
 
-	public string ContainedLetter { get { return GetComponentInChildren<TextMesh>().text; } }
+	public char ContainedLetter {
+		get { return GetComponentInChildren<TextMesh>().text[0]; }
+		set { GetComponentInChildren<TextMesh>().text = value.ToString(); }
+	}
 
 	bool grabbed = false;
 	Vector3 snapPosition;
@@ -64,6 +67,7 @@ public class LetterBox : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		LetterSpace space = other.GetComponent<LetterSpace>();
 		if ( space != null ) {
+			if ( overSpace != null ) overSpace.ExitLetter();
 			overSpace = space;
 			space.EnterLetter();
 		}
@@ -72,7 +76,7 @@ public class LetterBox : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other) {
 		LetterSpace space = other.GetComponent<LetterSpace>();
 		if ( space != null ) {
-			overSpace = null;
+			if ( overSpace == space ) overSpace = null;
 			space.ExitLetter();
 		}
 	}

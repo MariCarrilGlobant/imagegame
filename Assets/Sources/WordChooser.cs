@@ -7,6 +7,8 @@ public class WordChooser : MonoBehaviour {
 	public float enterTime;
 	public Transform selectedPivot;
 	public float selectedTime;
+	public WordContainer wordContainer;
+	public LetterContainer letterContainer;
 
 	void Start() {
 		StartCoroutine(EnterAllWords());
@@ -26,6 +28,8 @@ public class WordChooser : MonoBehaviour {
 			SetMouseInForWord(null);
 			SelectWord(word);
 			word.MoveToPivot(selectedPivot.position, selectedTime);
+			wordContainer.SetupSpaces(word.wordData);
+			letterContainer.SetupLetters(word.wordData);
 			enabled = false;
 		}
 	}

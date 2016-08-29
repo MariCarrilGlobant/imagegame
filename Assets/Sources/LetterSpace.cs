@@ -5,9 +5,9 @@ public class LetterSpace : MonoBehaviour {
 
 	public SpriteRenderer boxRenderer;
 	public float overAlpha;
-	public string validLetter;
+	public char validLetter;
 
-	public string ValidLetter { get { return validLetter; } }
+	public char ValidLetter { get { return validLetter; } }
 
 	void Start() {
 		SetBoxAlpha(0.0f);
