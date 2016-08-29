@@ -7,6 +7,7 @@ public class LetterBox : MonoBehaviour {
 	public AudioSource audioSource;
 	public float maxRotation;
 	public float maxSpeed;
+	public AudioClip wrongSpaceSound;
 	public AudioClip letterLockSound;
 	public ParticleSystem lockParticles;
 	public float shakeAmplitude;
@@ -56,6 +57,8 @@ public class LetterBox : MonoBehaviour {
 		if ( overSpace.ValidLetter == ContainedLetter ) {
 			snapPosition = overSpace.transform.position;
 			inPosition = true;
+		} else {
+			audioSource.PlayOneShot(wrongSpaceSound);
 		}
 	}
 

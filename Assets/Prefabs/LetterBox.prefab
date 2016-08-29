@@ -305,6 +305,7 @@ MonoBehaviour:
   audioSource: {fileID: 82000012059957954}
   maxRotation: 45
   maxSpeed: 0.7
+  wrongSpaceSound: {fileID: 8300000, guid: fa646373533e046bba3dc58dbf83f7ae, type: 3}
   letterLockSound: {fileID: 8300000, guid: a4eda06a7c4004f38ac4424f0068c77b, type: 3}
   lockParticles: {fileID: 198000010306065038}
   shakeAmplitude: 0.1
