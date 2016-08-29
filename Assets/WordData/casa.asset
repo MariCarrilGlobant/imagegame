@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainImage: {fileID: 21300000, guid: 19ce50221bc574dbaa088c765bfd5773, type: 3}
   word: CASA
+  audioClip: {fileID: 8300000, guid: 4708605376e3b4272aadf5e183c94c63, type: 3}

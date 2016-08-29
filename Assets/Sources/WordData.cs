@@ -6,5 +6,6 @@ public class WordData : ScriptableObject {
 
 	public Sprite mainImage;
 	public string word;
+	public AudioClip audioClip;
 
 }

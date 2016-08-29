@@ -7,9 +7,11 @@ public class ImageWordGame : MonoBehaviour {
 	public SpriteRenderer mainImageRenderer;
 	public Animator animator;
 	public Collider2D mainImageCollider;
+	public AudioSource audioSource;
 
 	void Start() {
 		mainImageRenderer.sprite = wordData.mainImage;
+		audioSource.clip = wordData.audioClip;
 	}
 
 	public void EnterWord() {
@@ -21,7 +23,6 @@ public class ImageWordGame : MonoBehaviour {
 	}
 
 	public void SelectWord() {
-		mainImageCollider.enabled = false;
 		animator.SetTrigger("Select");
 	}
 
@@ -42,6 +43,10 @@ public class ImageWordGame : MonoBehaviour {
 			transform.position = Vector3.Lerp(startPos, endPos, t);
 			yield return null;
 		}
+	}
+
+	public void PlayAudio() {
+		audioSource.Play();
 	}
 
 }

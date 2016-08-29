@@ -14,6 +14,7 @@ public class LetterBox : MonoBehaviour {
 	bool grabbed = false;
 	Vector3 snapPosition;
 	LetterSpace overSpace;
+	bool inPosition = false;
 
 	void Start() {
 		snapPosition = transform.position;
@@ -25,7 +26,9 @@ public class LetterBox : MonoBehaviour {
 	}
 
 	public void GrabLetter() {
-		grabbed = true;
+		if ( ! inPosition ) {
+			grabbed = true;
+		}
 		audioSource.Play();
 	}
 
@@ -38,7 +41,7 @@ public class LetterBox : MonoBehaviour {
 	void CheckIfValidSpace() {
 		if ( overSpace.ValidLetter == ContainedLetter ) {
 			snapPosition = overSpace.transform.position;
-			GetComponent<Collider2D>().enabled = false;
+			inPosition = true;
 		}
 	}
 

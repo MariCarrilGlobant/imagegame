@@ -10,6 +10,8 @@ public class WordChooser : MonoBehaviour {
 	public WordContainer wordContainer;
 	public LetterContainer letterContainer;
 
+	ImageWordGame selectedWord;
+
 	void Start() {
 		StartCoroutine(EnterAllWords());
 	}
@@ -23,14 +25,21 @@ public class WordChooser : MonoBehaviour {
 
 	void Update() {
 		ImageWordGame word = WordUnderMouse();
-		SetMouseInForWord(word);
-		if ( Input.GetMouseButtonDown(0) && word != null ) {
-			SetMouseInForWord(null);
-			SelectWord(word);
-			word.MoveToPivot(selectedPivot.position, selectedTime);
-			wordContainer.SetupSpaces(word.wordData);
-			letterContainer.SetupLetters(word.wordData);
-			enabled = false;
+		if ( selectedWord == null ) {
+			SetMouseInForWord(word);
+			if ( Input.GetMouseButtonDown(0) && word != null ) {
+				selectedWord = word;
+				SetMouseInForWord(null);
+				SelectWord(word);
+				word.MoveToPivot(selectedPivot.position, selectedTime);
+				wordContainer.SetupSpaces(word.wordData);
+				letterContainer.SetupLetters(word.wordData);
+				word.PlayAudio();
+			}
+		} else {
+			if ( Input.GetMouseButtonDown(0) && word != null ) {
+				word.PlayAudio();
+			}
 		}
 	}
 

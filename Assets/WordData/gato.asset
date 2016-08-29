@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainImage: {fileID: 21300000, guid: ba82afd660afc40908f96142756659d7, type: 3}
   word: GATO
+  audioClip: {fileID: 8300000, guid: 0fda6ca5b13d14a8b9e05e85c9f1bde3, type: 3}

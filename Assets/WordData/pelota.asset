@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainImage: {fileID: 21300000, guid: f85b4c622ae4f4d4cb53dfe69ff9b2d5, type: 3}
   word: PELOTA
+  audioClip: {fileID: 8300000, guid: 5df242bc126c04e5d927142bb020db04, type: 3}
