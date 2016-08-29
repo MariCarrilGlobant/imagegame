@@ -9,6 +9,7 @@ public class WordChooser : MonoBehaviour {
 	public float selectedTime;
 	public WordContainer wordContainer;
 	public LetterContainer letterContainer;
+	public GameEnding gameEnding;
 
 	ImageWordGame selectedWord;
 
@@ -35,6 +36,7 @@ public class WordChooser : MonoBehaviour {
 				wordContainer.SetupSpaces(word.wordData);
 				letterContainer.SetupLetters(word.wordData);
 				word.PlayAudio();
+				gameEnding.SelectedWord = word;
 			}
 		} else {
 			if ( Input.GetMouseButtonDown(0) && word != null ) {

@@ -11,10 +11,12 @@ public class GameEnding : MonoBehaviour {
 	public AudioClip confettiSound;
 	public float confettiDelay;
 
+	public ImageWordGame SelectedWord { private get; set; }
+
 	public void CheckForGameEnd() {
 		if ( AllLettersInPlace() ) {
 			RemoveAllLetters();
-			audioSource.PlayOneShot(cheerSound);
+			SelectedWord.PlayAudio();
 			StartCoroutine(LaunchConfetti());
 		}
 	}
@@ -35,6 +37,8 @@ public class GameEnding : MonoBehaviour {
 	}
 
 	IEnumerator LaunchConfetti() {
+		yield return new WaitForSeconds(confettiDelay);
+		audioSource.PlayOneShot(cheerSound);
 		for ( int i = 0; i < confetti.Length; i++ ) {
 			yield return new WaitForSeconds(confettiDelay);
 			audioSource.PlayOneShot(confettiSound);
