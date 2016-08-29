@@ -69,9 +69,9 @@ public class LetterBox : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerStay2D(Collider2D other) {
 		LetterSpace space = other.GetComponent<LetterSpace>();
-		if ( space != null ) {
+		if ( space != null && space != overSpace ) {
 			if ( overSpace != null ) overSpace.ExitLetter();
 			overSpace = space;
 			space.EnterLetter();
