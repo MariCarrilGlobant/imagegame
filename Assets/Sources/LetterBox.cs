@@ -5,6 +5,8 @@ public class LetterBox : MonoBehaviour {
 
 	public float snapTime;
 	public AudioSource audioSource;
+	public float maxRotation;
+	public float maxSpeed;
 
 	public char ContainedLetter {
 		get { return GetComponentInChildren<TextMesh>().text[0]; }
@@ -15,19 +17,27 @@ public class LetterBox : MonoBehaviour {
 	Vector3 snapPosition;
 	LetterSpace overSpace;
 	bool inPosition = false;
+	float lastPos;
 
 	void Start() {
 		snapPosition = transform.position;
+		lastPos = transform.position.x;
 	}
 
 	void Update() {
 		if ( grabbed && ! Input.GetMouseButton(0) ) ReleaseLetter();
 		if ( grabbed ) ClampToMouse();
+		float dx = Mathf.Clamp(transform.position.x - lastPos, -maxSpeed, maxSpeed);
+		transform.rotation = Quaternion.Euler(0.0f, 0.0f, dx / maxSpeed * maxRotation);
+		lastPos = transform.position.x;
 	}
 
 	public void GrabLetter() {
 		if ( ! inPosition ) {
 			grabbed = true;
+			Vector3 pos = transform.position;
+			pos.z = -1.0f;
+			transform.position = pos;
 		}
 		audioSource.Play();
 	}
@@ -63,10 +73,12 @@ public class LetterBox : MonoBehaviour {
 			t += Time.deltaTime / snapTime;
 			pos.x = Mathf.SmoothStep(startPos.x, endPos.x, t);
 			pos.y = Mathf.SmoothStep(startPos.y, endPos.y, t);
-			pos.z = Mathf.SmoothStep(startPos.z, endPos.z, t);
 			transform.position = pos;
 			yield return null;
 		}
+		pos = transform.position;
+		pos.z = 0.0f;
+		transform.position = pos;
 	}
 
 	void OnTriggerStay2D(Collider2D other) {

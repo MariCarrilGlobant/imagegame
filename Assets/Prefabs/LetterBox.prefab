@@ -272,6 +272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapTime: 0.3
   audioSource: {fileID: 82000012059957954}
+  maxRotation: 45
+  maxSpeed: 0.7
 --- !u!212 &212000010302053736
 SpriteRenderer:
   m_ObjectHideFlags: 1
