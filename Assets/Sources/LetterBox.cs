@@ -7,6 +7,10 @@ public class LetterBox : MonoBehaviour {
 	public AudioSource audioSource;
 	public float maxRotation;
 	public float maxSpeed;
+	public AudioClip letterLockSound;
+	public ParticleSystem lockParticles;
+	public float shakeAmplitude;
+	public float shakeTime;
 
 	public char ContainedLetter {
 		get { return GetComponentInChildren<TextMesh>().text[0]; }
@@ -79,6 +83,20 @@ public class LetterBox : MonoBehaviour {
 		pos = transform.position;
 		pos.z = 0.0f;
 		transform.position = pos;
+		if ( inPosition ) StartCoroutine(LockEffect());
+	}
+
+	IEnumerator LockEffect() {
+		audioSource.PlayOneShot(letterLockSound);
+		lockParticles.Play();
+		float t = 0.0f;
+		Vector3 pos = Camera.main.transform.position;
+		while ( t < shakeTime ) {
+			t += Time.deltaTime;
+			Camera.main.transform.position = pos + Random.insideUnitSphere * shakeAmplitude;
+			yield return null;
+		}
+		Camera.main.transform.position = pos;
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
