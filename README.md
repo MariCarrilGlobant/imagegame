@@ -1,4 +1,4 @@
-# DALE! #
+# Image Game #
 
 A game of matching letters to form the word corresponding to a selected image.
 
